@@ -40,9 +40,6 @@
     <ClInclude Include="schedule_rr.h">
       <Filter>Arquivos de Origem</Filter>
     </ClInclude>
-    <ClInclude Include="schedulers.h">
-      <Filter>Arquivos de Origem</Filter>
-    </ClInclude>
     <ClInclude Include="task.h">
       <Filter>Arquivos de Origem</Filter>
     </ClInclude>

@@ -151,7 +151,6 @@
   <ItemGroup>
     <ClInclude Include="CPU.h" />
     <ClInclude Include="list.h" />
-    <ClInclude Include="schedulers.h" />
     <ClInclude Include="schedule_rr.h" />
     <ClInclude Include="task.h" />
   </ItemGroup>

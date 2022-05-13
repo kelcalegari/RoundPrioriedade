@@ -6,7 +6,7 @@
 
 void iniciar();
 // add a task to the list 
-void add(std::string name, int priority, int burst);
+void add(std::string name, int tid, int priority, int burst);
 
 // invoke the scheduler
 void schedule();

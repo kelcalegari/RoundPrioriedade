@@ -9,7 +9,8 @@
 // representation of a task
 typedef struct task {
     std::string name;
-    //int tid; não sei o que é
+    int tid;
+    bool iniciou = false;
     int priority;
     int burst;
 } Task;

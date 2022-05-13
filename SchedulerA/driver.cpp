@@ -1,9 +1,7 @@
 /**
- * Driver.c
+ * Aluno Kelvynn Bordin Calegari
+ * Scheduler Round-Robin com Prioriedade
  *
- * Schedule is in the format
- *
- *  [name] [priority] [CPU burst]
  */
 
 #include <chrono>
@@ -22,7 +20,7 @@
 
 int main()
 {
-    std::string nomeArquivo = "rr-schedule.txt";
+    std::string nomeArquivo = "rr-schedule_pri.txt";
     std::string linha;
 
     std::string name;
@@ -33,10 +31,12 @@ int main()
 
     std::ifstream arquivo(nomeArquivo);
 
+
     if (arquivo.is_open()) {
+        int tid = 1;
         while (!arquivo.eof()) {
             std::getline(arquivo, linha);
-            std::cout << "\n Linha: " + linha;
+            
             std::string temp = "";
             int op = 0;
             for (size_t i = 0; i < linha.length(); i++)
@@ -47,13 +47,13 @@ int main()
                     switch (op)
                     {
                     case 0:
-                        std::cout << "\n nome: " + temp;
+                        
                         name = temp;
                         temp = "";
                         op++;
                         break;
                     case 1:
-                        std::cout << "\n priority: " + temp;
+                        
                         priority = stoi(temp);
                         temp = "";
                         op++;
@@ -68,9 +68,10 @@ int main()
                 }
                 
             }
-            std::cout << "\n bust: " + temp;
+ 
             burst = stoi(temp);
-            add(name, priority, burst);
+            add(name,tid, priority, burst);
+            tid++;
         }
         
     }
@@ -82,11 +83,10 @@ int main()
     arquivo.close();
 
     // invoke the scheduler
-    auto start = std::chrono::high_resolution_clock::now();
+    
     schedule();
-    auto end = std::chrono::high_resolution_clock::now();
-    auto int_s = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-    std::cout << "Duracao " << int_s.count() << " milissegundos" << std::endl;
+   
+    
 
     return 0;
 }
